@@ -1,9 +1,6 @@
 .app {
 
 }
-.app h1 {
-  text-align: center;
-}
 
 .app nav {
   display: flex;
@@ -17,22 +14,26 @@
   left: 0;
   width: 100%;
 }
+.app nav h1 {
+  color: white;
+}
 .app nav input {
   width: 600px;
   padding:0.6em;
   outline:none;
   color: blueviolet;
-  border-radius: 0.5em;
+  border-radius: 0.2em;
   border: none;
 }
-.app nav a {
-  padding:0.2em;
+.app nav button {
+  padding:0.6em;
   outline:none;
   background:white;
   color: blueviolet;
   text-decoration: none;
   border: 1px solid whitesmoke;
   border-radius: 0.2em;
+  white-space:nowrap;
 }
 
 
@@ -80,6 +81,9 @@
 
 .app .product-cont .product h5 {
 
+}
+.app .product-cont .product h6 {
+  color:blueviolet
 }
 .app .product-cont .product p {
   font-size: 0.8em;

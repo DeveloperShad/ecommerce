@@ -1,27 +1,12 @@
 import './ProductForm.css'
 
-import React, { useState } from 'react'
+import React from 'react'
 import { DropDownOption } from '../DropDownOption'
-import {initProduct, category} from '../constants/data'
+import { category} from '../../constants/data'
 
-export const ProductForm = () => {
-
-  const [product, setProduct] = useState(initProduct)
-  console.log(product);
-  const [products, setProducts] = useState(JSON.parse(localStorage.getItem('products')) || [])
+export const ProductForm = ({handleChange, handleAddProduct, product}) => {
 
 
-  const handleChange = (event) => {
-      event.target.name === 'rating' ? setProduct({ ...product, rating:{...product.rating,rate:event.target.value}})
-      : setProduct({ ...product, [event.target.name]: event.target.value })
-  }
-
-  const handleAddProduct = (e) => {
-    e.preventDefault()
-    setProducts({ ...products, ...product, id: Math.random() })
-    localStorage.setItem('products', JSON.stringify(products))
-    console.log(product)
-  }
 
   return (
     <div className="add-product">
@@ -53,7 +38,7 @@ export const ProductForm = () => {
         </div>
         <div className="rating">
           <p>Rating:</p>
-          <input type="text" name="rating" onChange={handleChange} value={product.rating.rate} />
+          <input type="text" name="rating" onChange={handleChange} value={product.rating} />
         </div>
         <div className="submit-btn">
           <p></p>
