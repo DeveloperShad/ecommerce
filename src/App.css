@@ -1,38 +1,179 @@
-.App {
-  text-align: center;
+.app {
+
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.app nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+  background: blueviolet;
+  padding:0.5em;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.app nav a:first-child {
+  color: white;
+  background:blueviolet;
+  border: none;
+}
+.app nav input {
+  width: 600px;
+  padding:0.6em;
+  outline:none;
+  color: blueviolet;
+  border-radius: 0.2em;
+  border: none;
+}
+.app nav a {
+  padding:0.35em;
+  outline:none;
+  background:white;
+  color: blueviolet;
+  text-decoration: none;
+  border: 1px solid whitesmoke;
+  border-radius: 0.2em;
+  white-space:nowrap;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+
+.app .home {
   display: flex;
   flex-direction: column;
+  gap: 1em;
+}
+.app .filter {
+  padding:0 1em;
+  margin-top: 4em;
+}
+.app .filter select {
+  margin-top: 0.5em;
+  padding:0.5em;
+  cursor: pointer;
+}
+
+
+.app .product-cont, .wishlist {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1em;
+  flex-wrap: wrap;
+  padding: 0 1em;
+}
+
+.app .product-cont .product {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width:16em;
+  border: 1px solid rgb(221, 221, 221);
+  aspect-ratio: 1;
+  padding: 0.5em;
+  border-radius: 0.5em;
+  
+}
+
+.app .product-cont .product img {
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.app .product-cont .product h5 {
+
+}
+.app .product-cont .product h6 {
+  color:blueviolet
+}
+.app .product-cont .product p {
+  font-size: 0.8em;
+}
+.app .product-cont .product .price-rating {
+  display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+}
+.app .product-cont .product .price-rating span {
+
+}
+.app .product-cont .product .edit-delete-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+.app .product-cont .product .edit-delete-btn button {
+  outline: none;
+  padding: 0.5em 0.5em;
+  font-size: 0.7em;
+  /* border: none; */
+}
+.app .product-cont .product .cart-wishlist-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.app .product-cont .product .cart-wishlist-btn button {
+  outline:none;
+  padding: 0.5em 0.5em;
+  font-size: 0.7em;
 }
 
-.App-link {
-  color: #61dafb;
+button {
+  cursor: pointer;
+  color: blueviolet;
+  background:white;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 0.4em;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+footer {
+  background: rgb(221, 221, 221);
+  /* color: white; */
+  text-align: center;
+  padding: 0.5em 0.5em;
 }
+footer p a {
+  /* background: white;
+  border: none;
+  outline: none;
+  padding: 0.2em; */
+  text-decoration: none;
+}
+
+
+.wishlist {
+  margin-top: 5em;
+}
+.app .cartlist {
+  margin-top:5em;
+}
+.app .cartlist .product {
+  display: flex;
+  flex-direction: row;
+  /* width: auto; */
+  width: 40em;
+  aspect-ratio: unset;
+}
+
+.app .cartlist .product img {
+  width: 20%;
+ height: 20%;
+}
+.app .cartlist .product .other-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.app .cartlist .product .other-details .price-rating span {
+ display: flex;
+ gap: 1em;
+}
+
+.app .cartlist .product .other-details .price-rating span button {
+  padding: 0.2em 0.5em;
+ }
