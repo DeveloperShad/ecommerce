@@ -1,12 +1,20 @@
+import { NavLink } from "react-router-dom"
+import {useDispatch} from 'react-redux'
+import { getInputValue } from "../store/actions/product"
 
-export const Navbar = ({showForm, handleWishlist, handleCart, handleSearch, handleShowForm}) => {
+export const Navbar = () => {
+  const dispatch = useDispatch()
+
+  const handleSearch = (event) => {
+    dispatch(getInputValue(event.target.value))
+  }
   return (
     <nav>
-      <h1>WhyKart</h1>
+      <NavLink to="/"><h1>WhyKart</h1></NavLink>
       <input type="search" onChange={handleSearch}  placeholder='Search a product by name of category' />
-      <button onClick={()=>handleShowForm(!showForm)}>{showForm? 'Hide Form': 'Product Form'}</button>
-      <button onClick={handleWishlist}>Wishlist</button>
-      <button onClick={handleCart}>Cart</button>
+      <NavLink to='/product-form'>Product Form</NavLink>
+      <NavLink to='/wishlist'>Wishlist</NavLink>
+      <NavLink to='/cartlist'>Cart</NavLink>
     </nav>
   )
 }

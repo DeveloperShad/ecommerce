@@ -14,8 +14,10 @@
   left: 0;
   width: 100%;
 }
-.app nav h1 {
+.app nav a:first-child {
   color: white;
+  background:blueviolet;
+  border: none;
 }
 .app nav input {
   width: 600px;
@@ -25,8 +27,8 @@
   border-radius: 0.2em;
   border: none;
 }
-.app nav button {
-  padding:0.6em;
+.app nav a {
+  padding:0.35em;
   outline:none;
   background:white;
   color: blueviolet;
@@ -53,7 +55,8 @@
   cursor: pointer;
 }
 
-.app .product-cont {
+
+.app .product-cont, .wishlist {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -140,3 +143,37 @@ footer p a {
   padding: 0.2em; */
   text-decoration: none;
 }
+
+
+.wishlist {
+  margin-top: 5em;
+}
+.app .cartlist {
+  margin-top:5em;
+}
+.app .cartlist .product {
+  display: flex;
+  flex-direction: row;
+  /* width: auto; */
+  width: 40em;
+  aspect-ratio: unset;
+}
+
+.app .cartlist .product img {
+  width: 20%;
+ height: 20%;
+}
+.app .cartlist .product .other-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.app .cartlist .product .other-details .price-rating span {
+ display: flex;
+ gap: 1em;
+}
+
+.app .cartlist .product .other-details .price-rating span button {
+  padding: 0.2em 0.5em;
+ }

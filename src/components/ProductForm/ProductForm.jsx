@@ -1,11 +1,46 @@
 import './ProductForm.css'
 
-import React from 'react'
+import React, { useState } from 'react'
 import { DropDownOption } from '../DropDownOption'
 import { category} from '../../constants/data'
+import {createProduct, updateProduct} from '../../store/actions/product'
+import { initProduct } from '../../constants/data'
+import { getData, removeData } from '../../utils/functions'
+import { useSelector, useDispatch } from 'react-redux'
+import {useNavigate} from 'react-router-dom'
 
-export const ProductForm = ({handleChange, handleAddProduct, product}) => {
+export const ProductForm = () => {
 
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const [product, setProduct] = useState(getData('updateProduct') || initProduct)
+  const [isEditId, setIsEditId] = useState(getData('updateProduct')?.id)
+  const products = useSelector(state => state.products)
+  // setProduct(products.find(product => product.id === isEdit))
+  console.log('products', products)
+
+  const handleChange = (event) => {
+    setProduct({ ...product, [event.target.name]: event.target.value })
+  }
+
+  // function to add the product in the products array
+  // and set the data in local storage
+  const handleAddProduct = (e) => {
+    e.preventDefault()
+    // here we are handling updating of the product in products array
+    if(isEditId) {
+      // alert(isEditId)
+      dispatch(updateProduct(isEditId, product))
+    }
+    // here we are creating new products with 
+    else {
+      dispatch(createProduct(product))
+    }
+    removeData('updateProduct')
+    setProduct(initProduct)
+    navigate('/')
+    setIsEditId('')
+  }
 
 
   return (
@@ -41,7 +76,7 @@ export const ProductForm = ({handleChange, handleAddProduct, product}) => {
           <input type="text" name="rating" onChange={handleChange} value={product.rating} />
         </div>
         <div className="submit-btn">
-          <p></p>
+          {/* <p></p> */}
           <input type="submit" name="submit" value="Add Product" id="" />
         </div>
       </form>

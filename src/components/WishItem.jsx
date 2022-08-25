@@ -1,7 +1,7 @@
 
 import React from 'react'
 
-export const Product = ({product, handleDelete, handleEdit, handleCart, handleWishlist}) => {
+export const WishItem = ({product, handleCart, handleWishlist}) => {
   return (
     <div className="product">
       <img src={product.image} alt={product.title} />
@@ -12,13 +12,9 @@ export const Product = ({product, handleDelete, handleEdit, handleCart, handleWi
         <span>Price: ${product.price}</span>
         <span>Rating: {product.rating}</span>
       </div>
-      <div className="edit-delete-btn">
-        <button onClick={()=>handleEdit(product.id)}>Edit</button>
-        <button onClick={()=> handleDelete(product.id)}>Delete</button>
-      </div>
       <div className="cart-wishlist-btn">
         <button onClick={()=>handleCart(product.id)}>Add To Cart</button>
-        <button onClick={()=>handleWishlist(product.id)}>Add To Wishlist</button>
+        <button onClick={()=>handleWishlist(product.id)}>Remove From Wishlist</button>
       </div>
     </div>
   )
